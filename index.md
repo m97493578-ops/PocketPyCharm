@@ -4,36 +4,38 @@
 </div> 
 
 <style> 
-/* 🚫 Completely delete the footer */ 
-footer, .site-footer, .footer { 
+/* 🚫 Completely delete the Jekyll site footer */ 
+footer, .site-footer, .footer, #footer { 
   display: none !important; 
 } 
 
-/* 🌓 Dark Mode configurations */ 
+/* 🌓 Dark Mode core overrides */ 
 body.dark-mode-active { 
   background-color: #0d1117 !important; 
   color: #c9d1d9 !important; 
 } 
 body.dark-mode-active h1, body.dark-mode-active h2, body.dark-mode-active h3, body.dark-mode-active h4 { 
   color: #f0f6fc !important; 
-  border-bottom-color: #21262d !important; 
+  border-bottom: 1px solid #21262d !important; 
 } 
 body.dark-mode-active a { 
   color: #58a6ff !important; 
 } 
+
+/* 💻 GitHub Code and Blockquote overrides */
 body.dark-mode-active code { 
+  background-color: rgba(110, 118, 129, 0.4) !important; 
+  color: #e6edf3 !important; 
+} 
+body.dark-mode-active pre, body.dark-mode-active blockquote { 
   background-color: #161b22 !important; 
-  color: #ff7b72 !important; 
+  border: 1px solid #30363d !important;
+  color: #8b949e !important;
 } 
-body.dark-mode-active pre { 
-  background-color: #161b22 !important; 
-  border: 1px solid #21262d !important; 
-} 
-body.dark-mode-active hr { 
-  background-color: #21262d !important; 
-  border: none !important; 
-  height: 1px !important; 
-} 
+body.dark-mode-active .markdown-body blockquote {
+  border-left: 0.25em solid #30363d !important;
+}
+
 body.dark-mode-active #theme-toggle-btn { 
   background: #21262d !important; 
   color: #f0f6fc !important; 
@@ -44,13 +46,11 @@ body.dark-mode-active #theme-toggle-btn {
 <script> 
 const themeButton = document.getElementById('theme-toggle-btn');
 
-// 1. Initial theme application logic
 if (localStorage.getItem('site-theme') === 'dark' || (!localStorage.getItem('site-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) { 
   document.body.classList.add('dark-mode-active'); 
   themeButton.textContent = '☀️ Light Mode'; 
 }
 
-// 2. Click event handler to toggle modes
 themeButton.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode-active');
   
@@ -75,16 +75,17 @@ A portable, zero-installation PyCharm development environment.
 
 * **[Download Standard Archive (ZIP)](https://github.com/m97493578-ops/PocketPyCharm/releases)**
     * Optimized for restricted school or enterprise environments.
-    * Requires manual folder extraction.
+    * Redirects internal configuration structures natively.
+    * *🔑 Note: If extracted using 7-Zip, the file password is `PyCharm`.*
 
 ## ⚡ Features
 
 * **No Admin Rights**: Runs entirely within user folders without registry modifications.
-* **Fully Portable**: Carry your complete Python IDE workspace directly on a USB drive.
+* **Zero Host Pollution**: Isolation of all system, plugins, and logs configurations.
 * **AMD64 Native**: Optimized to run smoothly on modern 64-bit Windows machines.
 
 ## 🚀 Quick Start Guide
 
-1. Download the latest version package from our official **[Releases Page](https://github.com/m97493578-ops/PocketPyCharm/releases)**.
-2. Unpack or extract the file bundle into your local directory (e.g., `Documents` or a `USB`).
+1. Download the latest `PocketPyCharm.zip` version package from our official **[Releases Page](https://github.com/m97493578-ops/PocketPyCharm/releases)**.
+2. Unpack or extract the file archive completely into your local directory (e.g., `Documents` or a `USB`).
 3. Open the `bin` folder and run `pycharm64.exe` to launch your portable IDE!
