@@ -78,6 +78,11 @@ A portable, zero-installation PyCharm development environment.
 
 > **IMPORTANT DISCLAIMER:** This is a 100% independent, fan-made open-source project. This project is **NOT** official software, is **NOT** made by JetBrains, and is **NOT** affiliated with or endorsed by JetBrains s.r.o. All credit for the core PyCharm software, logos, and the trademark "PyCharm" belongs entirely to **JetBrains**. Please support them by checking out the official version at [jetbrains.com](https://jetbrains.com).
 
+## 🐍 Need Python Too?
+
+Looking for a lightweight, portable core environment without an IDE interface? Check out our sister project:
+* **[PocketPython Project Website](https://m97493578-ops.github.io/PocketPython/)** — Features individual zero-install packages tailored exclusively for running scripts inside school and workspace drives.
+
 ## 📦 Available Packages
 
 * **[Download Standard Archive (ZIP)](https://github.com/m97493578-ops/PocketPyCharm/releases)**
