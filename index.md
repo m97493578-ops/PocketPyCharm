@@ -1,62 +1,70 @@
-<!-- 🌓 PocketPython Master UI Engine (Auto-Favicon + Dark Mode + Footer Remover + Gravity) -->
-<div style="text-align: right; margin: 15px 0;">
-  <button id="theme-toggle-btn" style="padding: 8px 16px; border-radius: 20px; border: 1px solid #ccc; background: #ffffff; color: #24292e; cursor: pointer; font-weight: bold; font-family: sans-serif; transition: all 0.2s ease;">🌙 Dark Mode</button>
-</div>
+<!-- 🌓 PocketPyCharm UI Engine (Dark Mode + Footer Remover) --> 
+<div style="text-align: right; margin: 15px 0;"> 
+  <button id="theme-toggle-btn" style="padding: 8px 16px; border-radius: 20px; border: 1px solid #ccc; background: #ffffff; color: #24292e; cursor: pointer; font-weight: bold; font-family: sans-serif; transition: all 0.2s ease;">🌙 Dark Mode</button> 
+</div> 
 
-<style>
-  /* 🚫 Completely delete the footer */
-  footer, .site-footer, .footer {
-    display: none !important;
-  }
+<style> 
+/* 🚫 Completely delete the footer */ 
+footer, .site-footer, .footer { 
+  display: none !important; 
+} 
 
-  /* 🌓 Dark Mode configurations */
-  body.dark-mode-active {
-    background-color: #0d1117 !important;
-    color: #c9d1d9 !important;
-  }
-  body.dark-mode-active h1, body.dark-mode-active h2, body.dark-mode-active h3, body.dark-mode-active h4 {
-    color: #f0f6fc !important;
-    border-bottom-color: #21262d !important;
-  }
-  body.dark-mode-active a {
-    color: #58a6ff !important;
-  }
-  body.dark-mode-active code {
-    background-color: #161b22 !important;
-    color: #ff7b72 !important;
-  }
-  body.dark-mode-active pre {
-    background-color: #161b22 !important;
-    border: 1px solid #21262d !important;
-  }
-  body.dark-mode-active hr {
-    background-color: #21262d !important;
-    border: none !important;
-    height: 1px !important;
-  }
-  body.dark-mode-active #theme-toggle-btn {
-    background: #21262d !important;
-    color: #f0f6fc !important;
-    border-color: #30363d !important;
-  }
-</style>
+/* 🌓 Dark Mode configurations */ 
+body.dark-mode-active { 
+  background-color: #0d1117 !important; 
+  color: #c9d1d9 !important; 
+} 
+body.dark-mode-active h1, body.dark-mode-active h2, body.dark-mode-active h3, body.dark-mode-active h4 { 
+  color: #f0f6fc !important; 
+  border-bottom-color: #21262d !important; 
+} 
+body.dark-mode-active a { 
+  color: #58a6ff !important; 
+} 
+body.dark-mode-active code { 
+  background-color: #161b22 !important; 
+  color: #ff7b72 !important; 
+} 
+body.dark-mode-active pre { 
+  background-color: #161b22 !important; 
+  border: 1px solid #21262d !important; 
+} 
+body.dark-mode-active hr { 
+  background-color: #21262d !important; 
+  border: none !important; 
+  height: 1px !important; 
+} 
+body.dark-mode-active #theme-toggle-btn { 
+  background: #21262d !important; 
+  color: #f0f6fc !important; 
+  border-color: #30363d !important; 
+} 
+</style> 
 
-<script>
+<script> 
+const themeButton = document.getElementById('theme-toggle-btn');
 
-  // ==========================================
-  // 2. DARK MODE TOGGLE LOGIC
-  // ==========================================
-  const themeButton = document.getElementById('theme-toggle-btn');
-  const userSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const currentSavedTheme = localStorage.getItem('site-theme');
+// 1. Initial theme application logic
+if (localStorage.getItem('site-theme') === 'dark' || (!localStorage.getItem('site-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) { 
+  document.body.classList.add('dark-mode-active'); 
+  themeButton.textContent = '☀️ Light Mode'; 
+}
 
-  if (currentSavedTheme === 'dark' || (!currentSavedTheme && userSystemDark)) {
-    document.body.classList.add('dark-mode-active');
+// 2. Click event handler to toggle modes
+themeButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode-active');
+  
+  if (document.body.classList.contains('dark-mode-active')) {
     themeButton.textContent = '☀️ Light Mode';
+    localStorage.setItem('site-theme', 'dark');
+  } else {
+    themeButton.textContent = '🌙 Dark Mode';
+    localStorage.setItem('site-theme', 'light');
   }
-  <script>
+});
+</script>
 
-# PocketPyCharm
+# PocketPyCharm 
 
 A portable, zero-installation PyCharm development environment.
 
